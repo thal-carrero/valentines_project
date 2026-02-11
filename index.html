@@ -14,9 +14,9 @@
   </head>
   <body>
     <div class="container">
-      <!-- Glass card  -->
+      <!-- Welcome card  -->
       <div class="glass-card">
-        <div class="card-content">
+        <div class="card-content" id="start-screen">
           <h1 class="card-title">Happy Valentine's<br />Day, My Love!</h1>
           <p class="intro-text">
             So... I made you this cute little thing as your gift! I hope you
@@ -25,12 +25,41 @@
             you remember about us!
           </p>
           <div class="button-container">
-            <a class="liquid-button" href="/quiz.html">
+            <button id="start-btn" class="liquid-button">
               <span>Let's Start</span>
               <i class="fa-solid fa-right-long"></i>
-            </a>
+            </button>
           </div>
         </div>
+
+        <!-- Quiz Screen -->
+        <div class="quiz-box hidden" id="quiz-box">
+          <div class="progress-container">
+            <div class="progress-bar">
+              <div class="progress-fill" id="progress-fill"></div>
+            </div>
+            <p class="progress-text">
+              <i class="fa-regular fa-circle-question"></i>
+              Question<span id="current-question"></span>of 5</span>
+            </p>
+          </div>
+          <div class="question flex-column flex-center" id="question">
+            <!-- Here I insert the question from javascript -->
+            
+          </div>
+          <div class="options-wrapper" id="options">
+            <!-- Here I insert the options from javascript -->
+          </div>
+
+          <div class="feedback hidden" id="feedback">
+            <!-- Here I insert the feedback from javascript -->
+          
+          </div>
+        </div>
+        <button class="next-btn hidden" id="next-btn">
+          Next Question
+          <i class="fa-solid fa-right-long"></i>
+        </button>
       </div>
 
       <!-- Love Letter Screen -->
