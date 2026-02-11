@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Love Quiz</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="quiz.css" />
+
+    <!-- FontAwsome for Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    />
+  </head>
+  <body>
+    <!-- Quiz Screen -->
+    <div class="container">
+      <div class="quiz-box glass-card">
+        <div class="progress-container">
+          <div class="progress-bar">
+            <div class="progress-fill" id="progress-fill"></div>
+          </div>
+          <p class="progress-text">
+            <i class="fa-regular fa-circle-question"></i>
+            Question <span class="current-question">1</span> of
+            <span class="total-questions">5</span>
+          </p>
+        </div>
+        <div class="question-container">
+          <i class="fa-regular fa-comments question-icon-svg"></i>
+          <div class="question" id="question">
+            <!-- Here I insert the question from javascript -->
+            Cual es la respuesta correcta?
+          </div>
+          <div class="options-wrapper" id="options">
+            <i class="fa-regular fa-heart option-icon"></i>
+            <p class="option-text" data-number="1">Option 1</p>
+            <!-- Here I insert the options from javascript -->
+          </div>
+          <div class="options-wrapper" id="options">
+            <i class="fa-regular fa-heart option-icon"></i>
+            <p class="option-text" data-number="2">Option 2</p>
+            <!-- Here I insert the options from javascript -->
+          </div>
+          <div class="options-wrapper" id="options">
+            <i class="fa-regular fa-heart option-icon"></i>
+            <p class="option-text" data-number="3">Option 3</p>
+            <!-- Here I insert the options from javascript -->
+          </div>
+          <div class="options-wrapper" id="options">
+            <i class="fa-regular fa-heart option-icon"></i>
+            <p class="option-text" data-number="4">Option 4</p>
+            <!-- Here I insert the options from javascript -->
+          </div>
+
+          <div class="feedback hidden" id="feedback">
+            <!-- Here I insert teh feedback from javascript -->
+            pretty feedback
+          </div>
+        </div>
+        <button class="next-btn hidden" id="next-btn">
+          Next Question
+          <i class="fa-solid fa-right-long"></i>
+        </button>
+      </div>
+    </div>
+    <script src="quiz.js" type="module"></script>
+  </body>
+</html>
