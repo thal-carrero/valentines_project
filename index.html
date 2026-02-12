@@ -15,7 +15,7 @@
   <body>
     <div class="container">
       <!-- Welcome card  -->
-      <div class="glass-card hidden">
+      <div class="glass-card">
         <div class="card-content" id="start-screen">
           <h1 class="card-title">Happy Valentine's<br />Day, My Love!</h1>
           <p class="intro-text">
@@ -59,19 +59,20 @@
       <!-- Modal Feedback -->
 
       <div class="modal" id="modal">
-        <button class="modal-close-btn" id="modal-close-btn">
-          <i class="fa-solid fa-circle-xmark"></i>
-        </button>
         <div class="modal-inner flex-column flex-center" id="modal-inner"></div>
+        <button class="modal-close-btn" id="modal-close-btn">
+          Close
+          <i class="fa-solid fa-xmark"></i>
+        </button>
       </div>
 
       <!-- Love Letter Screen -->
-      <div class="love-letter" id="letter-screen">
+      <div class="love-letter hidden" id="letter-screen">
         <div class="valentines">
           <div class="envelope"></div>
           <div class="front"></div>
           <div class="card">
-            <div class="text">To my<br />Crush <br />I love You!</div>
+            <div class="text">Pour<br />mon amour <br />Je t'aime!</div>
             <div class="heart"></div>
           </div>
           <div class="hearts">
@@ -83,7 +84,12 @@
           </div>
         </div>
       </div>
-      <div class="shadow"></div>
+      <div class="shadow hidden"></div>
+
+      <!-- Open Letter  -->
+      <div class="open-letter hidden">
+        <p></p>
+      </div>
     </div>
     <script src="script.js" type="module"></script>
   </body>
