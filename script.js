@@ -10,21 +10,26 @@ const progressBar = document.getElementById("progress-fill")
 const currentQuestionNumb = document.getElementById("current-question")
 const question = document.getElementById("question")
 const options = document.getElementById("options")
-const feedback = document.getElementById('feedback');
+const modal = document.getElementById('modal');
+const modalCloseBtn = document.getElementById('modal-close-btn')
+const modalInner = document.getElementById("modal-inner")
+const nextBtn = document.getElementById("next-btn")
+const loveLetter = document.getElementById("letter-screen")
 
 let currentQuestionIndex = 0
-let questionCounter = 0
 
 
 // Initializing the quiz 
-    startBtn.addEventListener("click", function(){
+    startBtn.addEventListener("click", startQuiz())
+        
+    function startQuiz(){
     startScreen.classList.add("hidden")
     quizBox.classList.remove("hidden")
     currentQuestionIndex = 0
-    questionCounter = 0
     renderQuestion(currentQuestionIndex)
 
-})
+}
+
 
 function renderQuestion(index){
     const currentQuestion = quizData[index]
@@ -40,7 +45,7 @@ function renderQuestion(index){
 
     // Create option buttons
     const optionsHtml = currentQuestion.options.map((option,i) => `
-    <div class="option" id="option" data-option="${i}">
+    <div class="option" data-option="${i}">
         <i class="fa-regular fa-heart option-icon"></i>
         <p>${option}</p>
     </div>
@@ -48,38 +53,39 @@ function renderQuestion(index){
       
     options.innerHTML = optionsHtml
    
-    // Setting the handeling of answer selection
-    document.addEventListener("click", function(e){
-        if(e.target.dataset.option){
-            handleAnwsers(Number(e.target.dataset.option)) 
-        }
-        
-    })
-
-
 }
+// Handle option selection 
+options.addEventListener('click', (e) => {
+    const optionEl = e.target.closest('.option');
+    if (!optionEl) return;
 
-// Handle answer selection
-function handleAnwsers(selectedIndex){
+    const selectedIndex = Number(optionEl.dataset.option);
+    if (Number.isNaN(selectedIndex)) return;
+
+    console.log(selectedIndex);
+    handleAnwsers(selectedIndex);
+});
+
+function handleAnwsers(i){
     
-    const question = quizData[currentQuestionIndex]
-    const options = document.querySelectorAll('.option');
+    const currentQuestion = quizData[currentQuestionIndex]
+    const optionEls = document.querySelectorAll('.option');
 
     // Disable all options after selection to prevent multiple clicks
-    options.forEach(opt => opt.style.pointerEvents = 'none');
+    optionEls.forEach(opt => opt.style.pointerEvents = 'none');
 
-     // Check if answer is correct
-    if(selectedIndex === question.correct) {
+    // Check if answer is correct
+    if (i === currentQuestion.correct) {
         // correct answer
-        options[selectedIndex].classList.add('correct');
-        showFeedback(question.feedback, true);
-      
-    }
-    else {
+        optionEls[i].classList.add('correct');
+        showFeedback(i, true);
+    } else {
         // incorrect answer
-        options[selectedIndex].classList.add('wrong');
-        showFeedback("Not quite, but I love that you tried! The answer is: " + question.options[question.correct], false);
-        
+        optionEls[i].classList.add('wrong');
+        showFeedback(
+            "Not quite, but I love that you tried! The answer is: " + currentQuestion.options[currentQuestion.correct],
+            false
+        );
     }
 // Show next button
     document.getElementById('next-btn').classList.remove('hidden');
@@ -90,9 +96,43 @@ function handleAnwsers(selectedIndex){
 
 // Display feedback message
 
-function showFeedback(message, isCorrect) {
-    
-    feedback.textContent = message;
-    feedback.className = 'feedback ' + (isCorrect ? 'correct' : 'wrong');
-    feedback.classList.remove('hidden');
+function showFeedback(optionIndex, isCorrect) {
+    modal.style.display = 'flex'
+    if (isCorrect){
+        modalInner.innerHTML = `
+        <img class="modal-gif" src="${quizData[optionIndex].feedback_url}"
+        <p class="modal-text">${quizData[optionIndex].feedback_text}</p>
+        `
+    } else {
+       modalInner.innerHTML = `
+        <img class="modal-gif" src="./assets/images/angry_cat.gif"
+        <p class="modal-text">Not quite, but I love that you tried! The answer is: "${quizData[currentQuestionIndex].options[quizData[currentQuestionIndex].correct]}"</p>
+        `
+    }
+
 }
+
+   modalCloseBtn.addEventListener('click', function(){
+        modal.style.display = 'none'
+    })
+
+
+    // Handle Next Question Button
+    nextBtn.addEventListener("click", nextQuestion() )
+
+    function nextQuestion(){
+        currentQuestionIndex++
+        if(currentQuestionIndex < quizData.length){
+            // Aun quedan preguntas 
+            renderQuestion(currentQuestionIndex)
+        } else {
+            // no more questions , show the letter 
+            renderLetter()
+        }
+    }   
+    function renderLetter(){
+        quizBox.classList.add('hidden')
+        loveLetter.classList.remove('hidden')
+
+    }
+     

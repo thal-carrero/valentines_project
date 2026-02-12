@@ -40,26 +40,29 @@
             </div>
             <p class="progress-text">
               <i class="fa-regular fa-circle-question"></i>
-              Question<span id="current-question"></span>of 5</span>
+              Question<span id="current-question"></span>of 5
             </p>
           </div>
           <div class="question flex-column flex-center" id="question">
             <!-- Here I insert the question from javascript -->
-            
           </div>
           <div class="options-wrapper" id="options">
             <!-- Here I insert the options from javascript -->
-          </div>
-
-          <div class="feedback hidden" id="feedback">
-            <!-- Here I insert the feedback from javascript -->
-          
           </div>
         </div>
         <button class="next-btn hidden" id="next-btn">
           Next Question
           <i class="fa-solid fa-right-long"></i>
         </button>
+      </div>
+
+      <!-- Modal Feedback -->
+
+      <div class="modal" id="modal">
+        <button class="modal-close-btn" id="modal-close-btn">
+          <i class="fa-solid fa-circle-xmark"></i>
+        </button>
+        <div class="modal-inner flex-column flex-center" id="modal-inner"></div>
       </div>
 
       <!-- Love Letter Screen -->
