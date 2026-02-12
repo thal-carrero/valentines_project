@@ -20,7 +20,7 @@ let currentQuestionIndex = 0
 
 
 // Initializing the quiz 
-    startBtn.addEventListener("click", startQuiz())
+    startBtn.addEventListener("click", startQuiz)
         
     function startQuiz(){
     startScreen.classList.add("hidden")
@@ -52,6 +52,10 @@ function renderQuestion(index){
     `).join("");
       
     options.innerHTML = optionsHtml
+
+    // Reset next button visibility for the new question
+    nextBtn.classList.add('hidden');
+    nextBtn.style.display = 'none';
    
 }
 // Handle option selection 
@@ -96,20 +100,22 @@ function handleAnwsers(i){
 
 // Display feedback message
 
-function showFeedback(optionIndex, isCorrect) {
-    modal.style.display = 'flex'
-    if (isCorrect){
-        modalInner.innerHTML = `
-        <img class="modal-gif" src="${quizData[optionIndex].feedback_url}"
-        <p class="modal-text">${quizData[optionIndex].feedback_text}</p>
-        `
-    } else {
-       modalInner.innerHTML = `
-        <img class="modal-gif" src="./assets/images/angry_cat.gif"
-        <p class="modal-text">Not quite, but I love that you tried! The answer is: "${quizData[currentQuestionIndex].options[quizData[currentQuestionIndex].correct]}"</p>
-        `
-    }
+function showFeedback(selectedIndex, isCorrect) {
+    modal.style.display = 'flex';
 
+    const q = quizData[currentQuestionIndex];
+
+    if (isCorrect) {
+        modalInner.innerHTML = `
+          <img class="modal-gif" src="${q.feedback_url}" alt="Feedback gif">
+          <p class="modal-text">${q.feedback_text}</p>
+        `;
+    } else {
+        modalInner.innerHTML = `
+          <img class="modal-gif" src="./assets/images/angry_cat.gif" alt="Wrong answer gif">
+          <p class="modal-text">Not quite, but I love that you tried! The answer is: "${q.options[q.correct]}"</p>
+        `;
+    }
 }
 
    modalCloseBtn.addEventListener('click', function(){
@@ -118,7 +124,7 @@ function showFeedback(optionIndex, isCorrect) {
 
 
     // Handle Next Question Button
-    nextBtn.addEventListener("click", nextQuestion() )
+    nextBtn.addEventListener("click", nextQuestion)
 
     function nextQuestion(){
         currentQuestionIndex++
@@ -134,5 +140,6 @@ function showFeedback(optionIndex, isCorrect) {
         quizBox.classList.add('hidden')
         loveLetter.classList.remove('hidden')
 
+
     }
-     
+    

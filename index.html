@@ -15,7 +15,7 @@
   <body>
     <div class="container">
       <!-- Welcome card  -->
-      <div class="glass-card">
+      <div class="glass-card hidden">
         <div class="card-content" id="start-screen">
           <h1 class="card-title">Happy Valentine's<br />Day, My Love!</h1>
           <p class="intro-text">
@@ -66,10 +66,24 @@
       </div>
 
       <!-- Love Letter Screen -->
-      <div class="love-letter hidden" id="letter-screen">
-        <p class="letter-text"></p>
-        <p class="signature"></p>
+      <div class="love-letter" id="letter-screen">
+        <div class="valentines">
+          <div class="envelope"></div>
+          <div class="front"></div>
+          <div class="card">
+            <div class="text">To my<br />Crush <br />I love You!</div>
+            <div class="heart"></div>
+          </div>
+          <div class="hearts">
+            <div class="one"></div>
+            <div class="two"></div>
+            <div class="three"></div>
+            <div class="four"></div>
+            <div class="five"></div>
+          </div>
+        </div>
       </div>
+      <div class="shadow"></div>
     </div>
     <script src="script.js" type="module"></script>
   </body>
