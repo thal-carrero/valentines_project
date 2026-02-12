@@ -4,15 +4,12 @@
 
 /* Cute Color Palette */
 :root {
-    --primary: #FF6B9D;
-    --secondary: #C879FF;
-    --accent: #FFB4D6;
-    --bg-gradient-1: #FFF0F7;
-    --bg-gradient-2: #E8D5FF;
-    --text: #5D3A5A;
-    --card-bg: #FFFFFF;
-    --success: #8FE3CF;
-    --error: #FFB4C4;
+    --primary: #D895B0;      /* Rosa medio más saturado */
+    --secondary: #B07A91;    /* Mauve profundo (antes era accent) */
+    --accent: #C97FA0;       /* Rosa intermedio para gradientes */
+    --text: #453640;         /* Berenjena oscuro */
+    --success: #A8C9B8;      /* Mint suave */
+    --error: #C46881;  
     background: url("assets/images/hearts_backgrounds.png") no-repeat;
     background-position: center;
     background-size: cover;
@@ -118,7 +115,7 @@ h1 {
     text-align: center;
     font-size: 1.25rem;
     line-height: 1.9;
-    color: #5D3A5A;
+    color: var(--text);
     margin-bottom: 45px;
     font-weight: 600;
     animation: textAppear 1s ease-out 0.5s backwards;
@@ -160,7 +157,7 @@ h1 {
     padding: 20px 55px;
     font-size: 1.3rem;
     color: white;
-    background: linear-gradient(135deg, #FF2D78, #FF6B9D, #C879FF);
+    background: linear-gradient(135deg, var(--primary), var(--accent), var(--secondary));
     border: none;
     border-radius: 50px;
     cursor: pointer;
@@ -385,8 +382,9 @@ h1 {
 .modal-close-btn{
     border: none;
     font-size: 1.4em;
+    font-weight: 500;
     cursor: pointer;
-    background: #8B3A62;
+    background: var(--secondary);
     padding: 10px 40px;
     color: white;
     border-radius: 40px;
@@ -394,20 +392,16 @@ h1 {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    /* gap: 20px; */
-
-   
-
-
+    gap: 10px;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 25px rgba(255, 107, 157, 0.35);
 }
 
 .modal-close-btn:hover{
-    /* transform: scale(1.3); */
-       transform: translateY(-5px) scale(1.05);
-    box-shadow: 
-        0 15px 40px rgba(255, 45, 120, 0.5),
-        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    transform: translateY(-3px)scale(1.05);
+    box-shadow: 0 12px 35px rgba(255, 107, 157, 0.45);
 }
+
 
 .modal-inner{
     font-size: 1.2em;
@@ -782,11 +776,10 @@ h1 {
     position: fixed;
     inset: 0;
     z-index: 50;
-    width: 100vw;
-    height: 100vh;
-
-    background: #fff url(./assets/images/card_background.png) center / contain no-repeat;
-
+    width: 90vw;
+    height: 90vh;
+    margin: 0 auto;
+    background: url(./assets/images/card_background.png) center / contain no-repeat;
     text-align: center;
     font-size: 1.1em;
     padding: 60px 35px;
