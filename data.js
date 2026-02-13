@@ -5,17 +5,17 @@ export const quizData = [
     correct: 1,
     feedback: {
       type: "image",
-      text: "It's one of my favorites of us — we looked so in love from the very start 🥹💖",
+      text: "It's one of my favorites of us, we looked so in love from the very start 🥹💖",
       src: "./assets/images/first-pic.png",
     },
   },
   {
     question: "Which was the last show we watched?",
-    options: ["The Office", "Prison Break", "One that I don't remember the name", "His & Hers"],
+    options: ["The Beast In Me", "Grey's Anatomy", "One that I can't remember the name", "His & Hers"],
     correct: 3,
     feedback: {
       type: "image",
-      text: "Se llama así, ¿no? 😂",
+      text: "Obviously this question could have multiple right answers 😂",
       src: "./assets/images/show-cover.jpg",
     },
   },
@@ -30,17 +30,17 @@ export const quizData = [
     correct: 0,
     feedback: {
       type: "spotify",
-      text: "Todas me recuerdan a nosotros, pero esta… esta es LA más 🫶",
+      text: "All of them remind me of us, but this one the most 🫶",
       embedUrl:"https://open.spotify.com/embed/track/3nR6ytbSKOF4NxsgqrYG9u?utm_source=generator&autoplay=1"
     },
   },
   {
-    question: "What phrase do I say the most per day?",
+    question: "Which phrase do I say the most everyday day?",
     options: ["Putain", "Pinga", "I Love You", "Pesa'o"],
     correct: 3,
     feedback: {
       type: "video",
-      text: "Es que eres un Pesa'o 😤💘",
+      text: "Because you aaaaaare Pesa'o 😤💘",
       sources: {
         webm: "./assets/gifs/annoyed.webm",
         mp4: "./assets/gifs/annoyed.mp4",

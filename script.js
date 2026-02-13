@@ -277,6 +277,7 @@ const valentines = document.querySelector('.valentines');
 if (valentines && loveLetter && openLetter) {
 	valentines.addEventListener('click', () => {
 		valentines.classList.add('is-open');
+		if (shadow) shadow.classList.add('hidden');
 		window.setTimeout(() => {
 			hidePanel(loveLetter, { onHidden: () => showPanel(openLetter) });
 		}, 650);
