@@ -477,8 +477,7 @@ h1 {
 
 /* Love Letter  */
 
-.love-letter,
-.open-letter {
+.love-letter{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -771,24 +770,80 @@ h1 {
     transform: scaleX(0.85);
   }
 }
-/* Open letter */
+/* Open letter - VERSIÓN LIMPIA CON COLOR DE FONDO */
 .open-letter {
-    position: fixed;
-    inset: 0;
-    z-index: 50;
-    width: 90vw;
-    height: 90vh;
-    margin: 0 auto;
-    background: url(./assets/images/card_background.png) center / contain no-repeat;
-    text-align: center;
-    font-size: 1.1em;
-    padding: 60px 35px;
-    border-radius: 0;
-    box-shadow: none;
-    overflow: auto;
-    filter: drop-shadow(0 18px 35px rgba(0,0,0,.22));
-    font-family: "Quicksand", sans-serif;
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  width: 100vw;
+  height: 100vh;
+  background: transparent;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: clamp(14px, 3vw, 28px);
+  overflow-y: auto; 
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+    font-weight: 500;
+     animation: revealLetter 1.5s ease-out forwards;
+}
 
+@keyframes revealLetter {
+    0% {
+        opacity: 0;
+        transform: scale(0.9) rotateX(-10deg);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) rotateX(0);
+    }
+}
+
+.open-letter-paper {
+  flex: 0 0 auto;
+  width: min(92vw, 720px);
+  margin: clamp(20px, 5vh, 60px) auto; /* Más espacio arriba y centrado horizontal */
+  
+  /* Color beige/papel en vez de imagen */
+  background: #f4ede3;
+  border-radius: 8px;
+  
+  /* Sombra suave */
+  box-shadow: 
+    0 4px 12px rgba(0,0,0,.08),
+    0 12px 35px rgba(0,0,0,.12);
+}
+
+.open-letter-body {
+  width: 100%;
+  box-sizing: border-box;
+  padding: clamp(32px, 8%, 64px) clamp(24px, 6%, 48px);
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  font-size: 1.08em;
+  line-height: 1.65;
+  color: #2d2d2d;
+}
+
+.open-letter-body p {
+  margin: 0 0 1em;
+}
+
+.open-letter-body p:last-child {
+  margin-bottom: 0;
+}
+
+.open-video {
+    text-decoration: none;
+    color: var(--accent);
+    cursor: pointer;
+}
+
+.signature {
+    text-align: right;
+    color: var(--accent);
 }
 
 @media (max-width: 480px) {
@@ -843,7 +898,7 @@ h1 {
     }
 
     .open-letter {
-        padding: 30px 18px;
+        padding: 14px;
     }
 }
 
