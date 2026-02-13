@@ -127,7 +127,7 @@ function showFeedback(isCorrect) {
 	// Base text: correct uses feedback.text, incorrect uses a generic message + correct answer
 	const text = isCorrect
 		? (feedback?.text || "")
-		: `Not quite, but I love that you tried! The answer is: "${q.options[q.correct]}"`;
+		: `Not quite, but not too far off!<br>The answer is: "${q.options[q.correct]}"`;
 
 	// Decide what media to show
 	// - If correct: use question's feedback
@@ -169,10 +169,7 @@ function showFeedback(isCorrect) {
 			  ></iframe>
 			</div>
 		  `;
-	} else {
-		// last-resort fallback
-		mediaHtml = `<img class="modal-img" src="./assets/images/angry_cat.gif" alt="Feedback" />`;
-	}
+	} 
 
 	modalInner.innerHTML = `
 	  ${mediaHtml}
