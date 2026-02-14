@@ -1,26 +1,26 @@
 export const quizData = [
   {
-    question: "Where was our first picture together?",
+    question: "Where was our first picture together ?",
     options: ["Malecon Habanero", "Yarini's Restaurant", "Varadero Beach", "Doha"],
     correct: 1,
     feedback: {
       type: "image",
-      text: "It's one of my favorites of us, we looked so in love from the very start 🥹💖",
+      text: "They are of my favorites of us, we looked so in love from the very start 🥹💖",
       src: "./assets/images/first-pic.png",
     },
   },
   {
-    question: "Which was the last show we watched?",
+    question: "Which was the last show we watched ?",
     options: ["The Beast In Me", "Grey's Anatomy", "One that I can't remember the name", "His & Hers"],
     correct: 3,
     feedback: {
       type: "image",
-      text: "Obviously this question could have multiple right answers 😂",
+      text: "Obviously this question could have another right answers 😂",
       src: "./assets/images/show-cover.jpg",
     },
   },
   {
-    question: "Which one is our song?",
+    question: "Which one is our song ?",
     options: [
       "Sublime - Disiz",
       "Otro Amanecer - Bad Bunny",
@@ -35,12 +35,12 @@ export const quizData = [
     },
   },
   {
-    question: "Which phrase do I say the most everyday day?",
+    question: "Which phrase do I say the most everyday ?",
     options: ["Putain", "Pinga", "I Love You", "Pesa'o"],
     correct: 3,
     feedback: {
       type: "video",
-      text: "Because you aaaaaare Pesa'o 😤💘",
+      text: "Because you aaaaaare un pesa'o 😤💘",
       sources: {
         webm: "./assets/gifs/annoyed.webm",
         mp4: "./assets/gifs/annoyed.mp4",
