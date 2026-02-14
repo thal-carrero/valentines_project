@@ -15,7 +15,7 @@ export const quizData = [
     correct: 3,
     feedback: {
       type: "image",
-      text: "Obviously this question could have another right answers 😂",
+      text: "Obviously this question could have another right answer 😂",
       src: "./assets/images/show-cover.jpg",
     },
   },
